@@ -51,7 +51,7 @@ cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 2160)
 
 cv2.namedWindow("test")
 
-img_counter = 0
+img_counter = 300
 records = ''
 
 while True:
@@ -79,9 +79,9 @@ while True:
         records += f'{img_counter}, {Ua}, {Up}, {I}\n' 
         img_counter += 1
 
-with open('experiments.csv') as file:
+with open('experiments.csv', 'a') as file:
     file.write(records)
-
+print(f'experiments.csv written with {img_counter} records')
 cam.release()
 
 cv2.destroyAllWindows()
